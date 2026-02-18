@@ -1,0 +1,44 @@
+﻿<Window x:Class="JavaLearning.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JavaLearning"
+        mc:Ignorable="d"
+        Title="Главное окно ученика"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized">
+    <Grid Background="Wheat">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Margin="0">
+                <Border Height="50"/>
+                <Button HorizontalAlignment="Left" Margin="21 0 0 0" Height="26" x:Name="TestingBtn" Click="TestingBtn_Click"  Background="Transparent" BorderBrush="Transparent">
+                    <TextBlock Text="Testing" />
+                </Button>
+                <Border Height="17"/>
+                <Button HorizontalAlignment="Left" Margin="20 0 0 0" Height="26" x:Name="LectionBtn" Click="LectionBtn_Click"  Background="Transparent" BorderBrush="Transparent" >
+                    <TextBlock Text="Lections" />
+                </Button>
+                <Border Height="17"/>
+                <Button HorizontalAlignment="Left" Margin="20 0 0 0" Height="26" x:Name="ProfileBtn" Click="ProfileBtn_Click"  Background="Transparent" BorderBrush="Transparent" >
+                    <TextBlock Text="Profile" />
+                </Button>
+            </StackPanel>
+
+            <Button Grid.Row="1" Content="Выйти из аккаунта" Margin="10" 
+                    Height="45" Name="GoOutBtn" Click="GoOutBtn_Click" VerticalAlignment="Bottom"/>
+        </Grid>
+
+        <Frame Name="MainFrame" Grid.Column="1" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>
