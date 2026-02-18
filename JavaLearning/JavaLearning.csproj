@@ -287,6 +287,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\logoJs.png" />
     <Resource Include="Resources\Безымянный.png" />
   </ItemGroup>
   <ItemGroup>

@@ -5,41 +5,73 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JavaLearning.View.Windows"
         mc:Ignorable="d"
-        Title="Окно авторизации" Height="450" Width="700" 
+        Title="Окно авторизации" Height="450" Width="800" 
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height=".6*" />
-            <RowDefinition Height="30" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="25" />
-            <RowDefinition Height="1*" />
-        </Grid.RowDefinitions>
-        <TextBlock Text="Авторизация" FontSize="30" FontWeight="SemiBold" HorizontalAlignment="Center"/>
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width=".5*" />
-                <ColumnDefinition Width="20" />
-                <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width=".3*" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="50" />
-                <RowDefinition Height="10" />
-                <RowDefinition Height="50" />
-            </Grid.RowDefinitions>
-            <TextBlock Text="Логин:" HorizontalAlignment="Right" />
-            <TextBox Name="LoginTb" Grid.Column="2" TextAlignment="Left" />
-            <TextBlock Text="Пароль:" Grid.Row="2" HorizontalAlignment="Right" />
-            <PasswordBox Name="PasswordTb" Grid.Column="2" Grid.Row="2" HorizontalContentAlignment="Left" />
-        </Grid>
-        <Button Grid.Row="3" Margin="270 -15 270 10" Height="30" Background="Transparent"
-                BorderBrush="Transparent" Name="PasswordRecoveryBtn" Click="PasswordRecoveryBtn_Click">
-            <TextBlock Text="Забыли пароль?" FontSize="17"/>
-        </Button>
-        <Button Name="CaptchaBtn" Content="Я не робот" Grid.Row="5" 
-                VerticalAlignment="Top" Margin="270 0 270 0" Height="30" Click="CaptchaBtn_Click"
-                Background="Transparent" BorderBrush="Transparent"/>
-        <Button Name="EnterBtn" Margin="120 0 115 0" Click="EnterBtn_Click" Content="Войти" Grid.Row="5"/>
+    <Grid Background="#151515" Margin="12">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="380" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="12">
+            <TextBlock Text="Добро пожаловать" FontSize="28" FontWeight="Bold" HorizontalAlignment="Center" />
+            <TextBlock Text="JavaLearning" FontSize="18" Margin="0 8 0 0" Foreground="#FF555555" HorizontalAlignment="Center"/>
+            <TextBlock Text="Войдите в свой аккаунт, чтобы продолжить" TextWrapping="Wrap" TextAlignment="Center" Margin="12" Foreground="#FF666666"/>
+        </StackPanel>
+
+        <Border Grid.Column="1" Background="#3A3A3A" CornerRadius="8" Padding="18" VerticalAlignment="Center">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="12"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="12"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="18"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Margin="6" VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image Grid.Column="0" Source="/Resources/logoJs.png" Width="140" Height="36" Stretch="Uniform" VerticalAlignment="Center" Margin="0 0 8 0"/>
+                    <TextBlock Grid.Column="1" Text="Авторизация" FontSize="20" FontWeight="SemiBold" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20 0 0 0"/>
+                </Grid>
+
+                <Grid Grid.Row="2" Margin="0 6 0 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="12"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Логин:" VerticalAlignment="Center"/>
+                    <TextBox Name="LoginTb" Grid.Column="2" MinWidth="160" />
+                </Grid>
+
+                <Grid Grid.Row="4" Margin="0 6 0 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="12"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Пароль:" VerticalAlignment="Center"/>
+                    <PasswordBox Name="PasswordTb" Grid.Column="2" MinWidth="160" />
+                </Grid>
+
+                <StackPanel Grid.Row="6" Orientation="Vertical" HorizontalAlignment="Center" Margin="0 8 0 0">
+                    <Button Name="PasswordRecoveryBtn" Click="PasswordRecoveryBtn_Click" Background="Transparent" BorderBrush="Transparent" Padding="4">
+                        <TextBlock Text="Забыли пароль?" FontSize="14"/>
+                    </Button>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 8 0 0">
+                        <Button Name="CaptchaBtn" Content="Я не робот" Height="34" Width="120" Click="CaptchaBtn_Click" Margin="0 0 8 0"/>
+                        <Button Name="EnterBtn" Content="Войти" Height="34" Width="120" Click="EnterBtn_Click"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Border>
     </Grid>
 </Window>

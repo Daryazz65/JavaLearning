@@ -14,22 +14,22 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Просмотр: UserLecture" FontSize="16" Foreground="White" Margin="0 0 0 8"/>
-
-        <DataGrid Name="UserLectureGrid"
-                  Grid.Row="1"
-                  AutoGenerateColumns="False"
-                  IsReadOnly="True"
-                  CanUserAddRows="False"
-                  SelectionMode="Single"
-                  HeadersVisibility="Column"
-                  RowHeaderWidth="0">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="60"/>
-                <DataGridTextColumn Header="Пользователь" Binding="{Binding User.Fullname}" Width="250"/>
-                <DataGridTextColumn Header="Лекция" Binding="{Binding Lecture.Title}" Width="300"/>
-                <DataGridCheckBoxColumn Header="Пройдено" Binding="{Binding IsCompleted}" Width="90"/>
-            </DataGrid.Columns>
-        </DataGrid>
+        <TextBlock Text="Просмотр: UserLecture" FontSize="16" Margin="0 0 0 8"/>
+        <Border Background="#151515" Padding="10" Grid.Row="1">
+            <DataGrid Name="UserLectureGrid"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True"
+                      CanUserAddRows="False"
+                      SelectionMode="Single"
+                      HeadersVisibility="Column"
+                      RowHeaderWidth="0">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="60"/>
+                    <DataGridTextColumn Header="Пользователь" Binding="{Binding User.Fullname}" Width="250"/>
+                    <DataGridTextColumn Header="Лекция" Binding="{Binding Lecture.Title}" Width="300"/>
+                    <DataGridCheckBoxColumn Header="Пройдено" Binding="{Binding IsCompleted}" Width="90"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
     </Grid>
 </Page>

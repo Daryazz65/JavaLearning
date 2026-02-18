@@ -9,29 +9,54 @@
       Title="TeacherCrudLecturePage">
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="360"/>
-            <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="360"/>
         </Grid.ColumnDefinitions>
-        <Border Grid.Column="0" Background="White" Margin="5" Padding="10">
+
+        <Border Grid.Column="0" Background="#151515" Margin="0 0 6 0" Padding="10">
+            <DockPanel>
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 0 0 8">
+                    <Button Name="DeleteBtn" Content="Удалить" Width="100" Margin="0 0 8 0" Click="DeleteBtn_Click"/>
+                    <Button Name="SaveBtn" Content="Сохранить все" Width="160" Click="SaveBtn_Click"/>
+                </StackPanel>
+                <DataGrid Name="LectureGrid" AutoGenerateColumns="False" IsReadOnly="False"
+                          CanUserAddRows="False" SelectionMode="Single" SelectionChanged="LectureGrid_SelectionChanged"
+                          RowEditEnding="LectureGrid_RowEditEnding">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="60" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Название" Binding="{Binding Title}" Width="200"/>
+                        <DataGridTextColumn Header="Текст" Binding="{Binding TextCorrect}" Width="*"/>
+                        <DataGridTextColumn Header="Файл" Binding="{Binding FilePath}" Width="140"/>
+                        <DataGridTextColumn Header="Видео" Binding="{Binding VideoUrl}" Width="140"/>
+                        <DataGridTextColumn Header="Тип сложности" Binding="{Binding LevelType.Type.Name}" Width="160" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Уровень" Binding="{Binding LevelType.Level.Name}" Width="160" IsReadOnly="True"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </DockPanel>
+        </Border>
+
+        <GridSplitter Grid.Column="1" Width="6" HorizontalAlignment="Stretch" Background="#203235" />
+
+        <Border Grid.Column="2" Background="#151515" Padding="12">
             <StackPanel>
-                <TextBlock Text="Редактирование уровня обучения" Foreground="White" FontSize="16" Margin="0 0 0 12"/>
+                <TextBlock Text="Редактирование уровня обучения" FontSize="16" Margin="0 0 0 12"/>
                 <TextBlock Text="Название" />
                 <TextBox Name="TitleTb" Margin="0 4 0 8"/>
-                <TextBlock Text="Описание" Foreground="White"/>
+                <TextBlock Text="Описание" />
                 <TextBox Name="TextCorrectTb" AcceptsReturn="True" Height="120" TextWrapping="Wrap" Margin="0 4 0 8"/>
-                <TextBlock Text="Путь к файлу" Foreground="White" />
+                <TextBlock Text="Путь к файлу" />
                 <StackPanel Orientation="Horizontal" Margin="0 4 0 8">
                     <TextBox Name="FilePathTb" Width="295"/>
                     <Button Content="..." Width="28" Margin="6 0 0 0" Click="ChooseFileBtn_Click"/>
                 </StackPanel>
-                <TextBlock Text="Ссылка на видео" Foreground="White" />
+                <TextBlock Text="Ссылка на видео" />
                 <TextBox Name="VideoUrlTb" Margin="0 4 0 8"/>
-                <TextBlock Text="Тип сложности" Foreground="White" />
+                <TextBlock Text="Тип сложности" />
                 <ComboBox Name="TypeCb" Margin="0 4 0 8" SelectionChanged="TypeCb_SelectionChanged" DisplayMemberPath="Name"/>
-                <TextBlock Text="Уровень — выберите или введите" Foreground="White" />
+                <TextBlock Text="Уровень — выберите или введите" />
                 <ComboBox Name="LevelCb" Margin="0 4 0 8" DisplayMemberPath="Name"/>
-                <TextBlock Text="Новый уровень (если требуется)" Foreground="White" />
+                <TextBlock Text="Новый уровень (если требуется)" />
                 <TextBox Name="NewLevelTb" Margin="0 4 0 8" Text="Введите имя нового уровня"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                     <Button Name="AddBtn" Content="Добавить" Width="90" Margin="0 0 8 0" Click="AddBtn_Click"/>
@@ -40,25 +65,5 @@
                 </StackPanel>
             </StackPanel>
         </Border>
-        <GridSplitter Grid.Column="1" Width="6" HorizontalAlignment="Stretch" Background="#203235" />
-        <DockPanel Grid.Column="2" Margin="5">
-            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 0 0 8">
-                <Button Name="DeleteBtn" Content="Удалить" Width="100" Margin="0 0 8 0" Click="DeleteBtn_Click"/>
-                <Button Name="SaveBtn" Content="Сохранить все" Width="160" Click="SaveBtn_Click"/>
-            </StackPanel>
-            <DataGrid Name="LectureGrid" AutoGenerateColumns="False" IsReadOnly="False"
-                      CanUserAddRows="False" SelectionMode="Single" SelectionChanged="LectureGrid_SelectionChanged"
-                      RowEditEnding="LectureGrid_RowEditEnding">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="60" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="Название" Binding="{Binding Title}" Width="200"/>
-                    <DataGridTextColumn Header="Текст" Binding="{Binding TextCorrect}" Width="*"/>
-                    <DataGridTextColumn Header="Файл" Binding="{Binding FilePath}" Width="140"/>
-                    <DataGridTextColumn Header="Видео" Binding="{Binding VideoUrl}" Width="140"/>
-                    <DataGridTextColumn Header="Тип сложности" Binding="{Binding LevelType.Type.Name}" Width="160" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="Уровень" Binding="{Binding LevelType.Level.Name}" Width="160" IsReadOnly="True"/>
-                </DataGrid.Columns>
-            </DataGrid>
-        </DockPanel>
     </Grid>
 </Page>

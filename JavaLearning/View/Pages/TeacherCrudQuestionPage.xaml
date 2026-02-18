@@ -10,33 +10,59 @@
 
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="360"/>
-            <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="360"/>
         </Grid.ColumnDefinitions>
-        <Border Grid.Column="0" Background="White" Margin="5" Padding="10">
-            <StackPanel>
-                <TextBlock Text="Редактирование вопросов" Foreground="White" FontSize="16" Margin="0 0 0 12"/>
 
-                <TextBlock Text="Вопрос" Foreground="White" />
+        <Border Grid.Column="0" Background="#151515" Margin="0 0 6 0" Padding="10">
+            <DockPanel>
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 0 0 8">
+                    <Button Name="DeleteBtn" Content="Удалить" Width="100" Margin="0 0 8 0" Click="DeleteBtn_Click"/>
+                    <Button Name="SaveBtn" Content="Сохранить все" Width="160" Click="SaveBtn_Click"/>
+                </StackPanel>
+
+                <DataGrid Name="QuestionGrid" AutoGenerateColumns="False" IsReadOnly="False"
+                          CanUserAddRows="False" SelectionMode="Single" SelectionChanged="QuestionGrid_SelectionChanged"
+                          RowEditEnding="QuestionGrid_RowEditEnding">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="60" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Вопрос" Binding="{Binding Question1}" Width="300"/>
+                        <DataGridTextColumn Header="Неправ. ответ 1" Binding="{Binding WrongAnswerOne}" Width="160"/>
+                        <DataGridTextColumn Header="Неправ. ответ 2" Binding="{Binding WrongAnswerTwo}" Width="160"/>
+                        <DataGridTextColumn Header="Прав. ответ" Binding="{Binding CorrectAnswer}" Width="160"/>
+                        <DataGridTextColumn Header="Тип сложности" Binding="{Binding LevelType.Type.Name}" Width="160" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Уровень" Binding="{Binding LevelType.Level.Name}" Width="160" IsReadOnly="True"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </DockPanel>
+        </Border>
+
+        <GridSplitter Grid.Column="1" Width="6" HorizontalAlignment="Stretch" Background="#151515" />
+
+        <Border Grid.Column="2" Background="#151515" Padding="12">
+            <StackPanel>
+                <TextBlock Text="Редактирование вопросов" FontSize="16" Margin="0 0 0 12"/>
+
+                <TextBlock Text="Вопрос" />
                 <TextBox Name="QuestionTb" AcceptsReturn="True" Height="80" TextWrapping="Wrap" Margin="0 4 0 8"/>
 
-                <TextBlock Text="Неверный вариант 1" Foreground="White"/>
+                <TextBlock Text="Неверный вариант 1" />
                 <TextBox Name="WrongOneTb" Margin="0 4 0 8"/>
 
-                <TextBlock Text="Неверный вариант 2" Foreground="White"/>
+                <TextBlock Text="Неверный вариант 2" />
                 <TextBox Name="WrongTwoTb" Margin="0 4 0 8"/>
 
-                <TextBlock Text="Правильный ответ" Foreground="White"/>
+                <TextBlock Text="Правильный ответ" />
                 <TextBox Name="CorrectTb" Margin="0 4 0 12"/>
 
-                <TextBlock Text="Тип сложности" Foreground="White" />
+                <TextBlock Text="Тип сложности" />
                 <ComboBox Name="TypeCb" Margin="0 4 0 8" SelectionChanged="TypeCb_SelectionChanged" DisplayMemberPath="Name"/>
 
-                <TextBlock Text="Уровень — выберите или введите" Foreground="White" />
+                <TextBlock Text="Уровень — выберите или введите" />
                 <ComboBox Name="LevelCb" Margin="0 4 0 8" DisplayMemberPath="Name"/>
 
-                <TextBlock Text="Новый уровень (если требуется)" Foreground="White" />
+                <TextBlock Text="Новый уровень (если требуется)" />
                 <TextBox Name="NewLevelTb" Margin="0 4 0 8" Text="Введите имя нового уровня"/>
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
@@ -46,28 +72,5 @@
                 </StackPanel>
             </StackPanel>
         </Border>
-
-        <GridSplitter Grid.Column="1" Width="6" HorizontalAlignment="Stretch" Background="White" />
-
-        <DockPanel Grid.Column="2" Margin="5">
-            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 0 0 8">
-                <Button Name="DeleteBtn" Content="Удалить" Width="100" Margin="0 0 8 0" Click="DeleteBtn_Click"/>
-                <Button Name="SaveBtn" Content="Сохранить все" Width="160" Click="SaveBtn_Click"/>
-            </StackPanel>
-
-            <DataGrid Name="QuestionGrid" AutoGenerateColumns="False" IsReadOnly="False"
-                      CanUserAddRows="False" SelectionMode="Single" SelectionChanged="QuestionGrid_SelectionChanged"
-                      RowEditEnding="QuestionGrid_RowEditEnding">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="60" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="Вопрос" Binding="{Binding Question1}" Width="300"/>
-                    <DataGridTextColumn Header="Неправ. ответ 1" Binding="{Binding WrongAnswerOne}" Width="160"/>
-                    <DataGridTextColumn Header="Неправ. ответ 2" Binding="{Binding WrongAnswerTwo}" Width="160"/>
-                    <DataGridTextColumn Header="Прав. ответ" Binding="{Binding CorrectAnswer}" Width="160"/>
-                    <DataGridTextColumn Header="Тип сложности" Binding="{Binding LevelType.Type.Name}" Width="160" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="Уровень" Binding="{Binding LevelType.Level.Name}" Width="160" IsReadOnly="True"/>
-                </DataGrid.Columns>
-            </DataGrid>
-        </DockPanel>
     </Grid>
 </Page>

@@ -8,43 +8,55 @@
         Title="Главное окно преподавателя"
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized">
-    <Grid Background="Wheat">
+    <Grid Background="#3A3A3A">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="300"/>
             <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <StackPanel Grid.Row="0" Margin="0">
-                <Border Height="50"/>
-                <Button HorizontalAlignment="Left" Margin="21 0 0 0" Height="26" x:Name="LectureBtn" Click="LectureBtn_Click"  Background="Transparent" BorderBrush="Transparent">
-                    <TextBlock Text="Лекции" />
-                </Button>
-                <Border Height="17"/>
-                <Button HorizontalAlignment="Left" Margin="20 0 0 0" Height="26" x:Name="QuestionBtn" Click="QuestionBtn_Click"  Background="Transparent" BorderBrush="Transparent" >
-                    <TextBlock Text="Вопросы" />
-                </Button>
-                <Border Height="17"/>
-                <Button HorizontalAlignment="Left" Margin="20 0 0 0" Height="26" x:Name="UserLectureBtn" Click="UserLectureBtn_Click"  Background="Transparent" BorderBrush="Transparent" >
-                    <TextBlock Text="Ученики и лекции" />
-                </Button>
-                <Border Height="17"/>
-                <Button HorizontalAlignment="Left" Margin="20 0 0 0" Height="26" x:Name="QuestionUserBtn" Click="QuestionUserBtn_Click"  Background="Transparent" BorderBrush="Transparent" >
-                    <TextBlock Text="Ученики и вопросы" />
-                </Button>
-                <Border Height="17"/>
-                <Button HorizontalAlignment="Left" Margin="20 0 0 0" Height="26" x:Name="ProfileBtn" Click="ProfileBtn_Click"  Background="Transparent" BorderBrush="Transparent" >
-                    <TextBlock Text="Профиль" />
-                </Button>
-            </StackPanel>
 
-            <Button Grid.Row="1" Content="Выйти из аккаунта" Margin="10" 
-                    Height="45" Name="GoOutBtn" Click="GoOutBtn_Click" VerticalAlignment="Bottom"/>
-        </Grid>
+        <Border Grid.Column="0" Background="#151515" Padding="12" Margin="8" CornerRadius="6">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
 
-        <Frame Name="MainFrameTeacher" Grid.Column="1" NavigationUIVisibility="Hidden"/>
+                <Grid Grid.Row="0" Margin="6" VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image Grid.Column="0" Source="/Resources/logoJs.png" Width="140" Height="36" Stretch="Uniform" VerticalAlignment="Center" Margin="0 0 8 0"/>
+                </Grid>
+
+                <StackPanel Grid.Row="1" Margin="6 12 6 6" VerticalAlignment="Top">
+                    <Button x:Name="ProfileBtn" Click="ProfileBtn_Click" Height="36" Margin="0 0 0 8" Background="Transparent" BorderBrush="#FFCCCCCC">
+                        <TextBlock Text="Профиль" Padding="8 0"/>
+                    </Button>
+
+                    <Button x:Name="LectureBtn" Click="LectureBtn_Click" Height="36" Margin="0 0 0 8" Background="Transparent" BorderBrush="#FFCCCCCC">
+                        <TextBlock Text="Лекции" Padding="8 0"/>
+                    </Button>
+
+                    <Button x:Name="QuestionBtn" Click="QuestionBtn_Click" Height="36" Margin="0 0 0 8" Background="Transparent" BorderBrush="#FFCCCCCC">
+                        <TextBlock Text="Вопросы" Padding="8 0"/>
+                    </Button>
+
+                    <Button x:Name="UserLectureBtn" Click="UserLectureBtn_Click" Height="36" Margin="0 0 0 8" Background="Transparent" BorderBrush="#FFCCCCCC">
+                        <TextBlock Text="Ученики и лекции" Padding="8 0"/>
+                    </Button>
+
+                    <Button x:Name="QuestionUserBtn" Click="QuestionUserBtn_Click" Height="36" Background="Transparent" BorderBrush="#FFCCCCCC">
+                        <TextBlock Text="Ученики и вопросы" Padding="8 0"/>
+                    </Button>
+                </StackPanel>
+
+                <Button Grid.Row="2" Content="Выйти из аккаунта" Margin="6" Height="42" Name="GoOutBtn" Click="GoOutBtn_Click" VerticalAlignment="Bottom"/>
+            </Grid>
+        </Border>
+
+        <Frame Name="MainFrameTeacher" Grid.Column="1" NavigationUIVisibility="Hidden" Margin="12"/>
     </Grid>
 </Window>
