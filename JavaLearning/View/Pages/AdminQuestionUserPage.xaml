@@ -25,7 +25,7 @@
                           RowEditEnding="QuestionUserGrid_RowEditEnding">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="60" IsReadOnly="True"/>
-                        <DataGridTextColumn Header="ФИО" Binding="{Binding User.Fullname}" Width="200" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="ФИО" Binding="{Binding User.FullName}" Width="200" IsReadOnly="True"/>
                         <DataGridTextColumn Header="Вопрос" Binding="{Binding Question.Question1}" Width="360" IsReadOnly="True"/>
                         <DataGridCheckBoxColumn Header="Отвечено" Binding="{Binding Done}" Width="120"/>
                     </DataGrid.Columns>
@@ -39,7 +39,7 @@
             <StackPanel>
                 <TextBlock Text="QuestionUser — создание / редактирование" FontSize="16" Margin="0 0 0 12"/>
                 <TextBlock Text="ФИО" />
-                <ComboBox Name="UserCb" DisplayMemberPath="Fullname" Margin="0 4 0 8"/>
+                <ComboBox Name="UserCb" DisplayMemberPath="FullName" Margin="0 4 0 8"/>
                 <TextBlock Text="Вопрос" />
                 <ComboBox Name="QuestionCb" DisplayMemberPath="Question1" Margin="0 4 0 8"/>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0 4 0 8">

@@ -23,7 +23,7 @@
                       RowHeaderWidth="0">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="60"/>
-                    <DataGridTextColumn Header="Пользователь" Binding="{Binding User.Fullname}" Width="250"/>
+                    <DataGridTextColumn Header="Пользователь" Binding="{Binding User.FullName}" Width="250"/>
                     <DataGridTextColumn Header="Вопрос" Binding="{Binding Question.Question1}" Width="*"/>
                     <DataGridCheckBoxColumn Header="Выполнено" Binding="{Binding Done}" Width="90"/>
                 </DataGrid.Columns>

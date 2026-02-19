@@ -26,7 +26,7 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="60" IsReadOnly="True"/>
                         <DataGridTextColumn Header="Логин" Binding="{Binding Login}" Width="160"/>
-                        <DataGridTextColumn Header="ФИО" Binding="{Binding Fullname}" Width="220"/>
+                        <DataGridTextColumn Header="ФИО" Binding="{Binding FullName}" Width="220"/>
                         <DataGridTextColumn Header="Дата регистрации" Binding="{Binding RegistrationDate, StringFormat=d}" Width="140"/>
                         <DataGridTextColumn Header="Роль" Binding="{Binding Role.Name}" Width="160" IsReadOnly="True"/>
                     </DataGrid.Columns>

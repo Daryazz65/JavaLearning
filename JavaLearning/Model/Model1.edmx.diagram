@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="97e0cf90332041949f4ebc110417a02b" Name="Diagram1">
+      <Diagram DiagramId="97e0cf90332041949f4ebc110417a02b" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="ValeryModel.Lecture" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ValeryModel.Level" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ValeryModel.LevelType" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
